@@ -6,18 +6,6 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 })
 
-function getMessage() {
-    const schema = {
-        "type": "object",
-        "properties": {
-            "tasks": {
-                "type": "array",
-                "items": { "type": "string" }
-            }
-        }
-    }
-}
-
 async function getChatResponse(message) {
     return await openai.chat.completions.create({
         model: "gpt-3.5-turbo",

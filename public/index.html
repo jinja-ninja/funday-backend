@@ -1,56 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="default-app-theme">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <style>
-    body {
-      background-color: #222;
-      color: whitesmoke;
-    }
-    pre {
-      background-color: ghostwhite;
-      border: 1px solid silver;
-      padding: 10px 20px;
-      margin: 20px;
-      color: #111;
-    }
-
-    .json-key {
-      color: brown;
-    }
-
-    .json-value {
-      color: navy;
-    }
-
-    .json-string {
-      color: olive;
-    }
-  </style>
-  <title>Simple Frontend to Test the API</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/assets/Funday-eeeff24b.svg" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funday</title>
+  <script type="module" crossorigin src="/assets/index-146ea0e0.js"></script>
+  <link rel="stylesheet" href="/assets/index-5a6b8b19.css">
 </head>
 
 <body>
-  <h1>mister-backend API Testing</h1>
-  <p>Remember to run the app in production mode</p>
-  <p>
-      * NOTE: if we want to work with the local mongo, change it the  backend config
-  </p>
-  <button onclick="onLoadCars()">Load cars</button>
-  <button onclick="onLoadUsers()">Load users</button>
-  <button onclick="onAddCar()">Login and add car</button>
-  <button onclick="onGetCarById()">Get car by id</button>
-  <button onclick="onRemoveCar()">Remove car</button>
-  <button onclick="onAddCarMsg()">Add car msg</button>
-
-  <h2></h2>
-  <pre></pre>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js"></script>
-  <script type="module" src="main.js"></script>
-
+  <div id="root"></div>
+  
 </body>
 
 </html>

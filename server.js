@@ -2,15 +2,13 @@ import http from 'http'
 import path from 'path'
 import cors from 'cors'
 import express from 'express'
-import cookieParser from 'cookie-parser'
 
 const app = express()
 const server = http.createServer(app)
 
 // Express App Config
-app.use(cookieParser())
-app.use(express.json({limit: '50mb'}))
-// app.use(express.json())
+app.use(express.json())
+// app.use(express.json({limit: '50mb'}))
 
 
 if (process.env.NODE_ENV === 'production') {
@@ -28,22 +26,12 @@ if (process.env.NODE_ENV === 'production') {
     app.use(cors(corsOptions))
 }
 
-import { authRoutes } from './api/auth/auth.routes.js'
-import { userRoutes } from './api/user/user.routes.js'
-import { chatRoutes } from './api/chat/chat.routes.js'
-import { boardRoutes } from './api/board/board.routes.js'
-import { setupSocketAPI } from './services/socket.service.js'
+import { metadataRoutes } from './api/metadata/metadata.routes.js'
 import { logger } from './services/logger.service.js'
 
 // routes
-import { setupAsyncLocalStorage } from './middlewares/setupAls.middleware.js'
-app.all('*', setupAsyncLocalStorage)
 
-app.use('/api/auth', authRoutes)
-app.use('/api/user', userRoutes)
-app.use('/api/board', boardRoutes)
-app.use('/api/chat', chatRoutes)
-setupSocketAPI(server)
+app.use('/api/url', metadataRoutes)
 
 // Make every server-side-route to match the index.html
 // so when requesting http://localhost:3030/index.html/car/123 it will still respond with

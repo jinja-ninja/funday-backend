@@ -1,4 +1,6 @@
 import fs from 'fs'
+import {asyncLocalStorage} from './als.service.js'
+
 
 const logsDir = './logs'
 if (!fs.existsSync(logsDir)) {
@@ -22,7 +24,10 @@ function doLog(level, ...args) {
     )
 
     var line = strs.join(' | ')
-    line = `${getTime()} - ${level} - ${line} `
+    const store = asyncLocalStorage.getStore()
+    const userId = store?.loggedinUser?._id
+    const str = userId ? `(userId: ${userId})` : ''
+    line = `${getTime()} - ${level} - ${line} ${str}\n`
     console.log(line)
     fs.appendFile('./logs/backend.log', line, (err) =>{
         if (err) console.log('FATAL: cannot write to log file')
